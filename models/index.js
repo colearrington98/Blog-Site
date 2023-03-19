@@ -1,18 +1,19 @@
-const User = require('./user'); // import the User model
-const Blog = require('./blog'); // import the Blog model
-const Comment = require('./comment'); // import the Comment model
+const sequalize = require('../config/connection'); // import the connection to the database
+const User = require('./user');
+const Blog = require('./blog');
+const Comment = require('./comment');
 
 
-User.hasMany(Comment, { foreignKey: 'user_id' });
+User.hasMany(Comment, { foreignKey: 'user_id', onDelete: 'CASCADE' });
 Comment.belongsTo(User, { foreignKey: 'user_id' });
 
-User.hasMany(Post, { foreignKey: 'user_id' });
-Post.belongsTo(User, { foreignKey: 'user_id' });
+User.hasMany(Blog, { foreignKey: 'user_id', onDelete: 'CASCADE' });
+Blog.belongsTo(User, { foreignKey: 'user_id' });
 
-Comment.belongsTo(Post, { foreignKey: 'post_id' });//
-Post.hasMany(Comment, { foreignKey: 'post_id' }); // create associations between the models
+Blog.hasMany(Comment, { foreignKey: 'blog_id', onDelete: 'CASCADE' });
+Comment.belongsTo(Blog, { foreignKey: 'blog_id' });
 
 
-module.exports = { User, Post, Comment }; // export the User, Post, and Comment models
+module.exports = { User, Blog, Comment };
 
 

@@ -1,4 +1,4 @@
-const sequalize = require('../config/connection'); // import the connection to the database
+const sequalize = require('./config/connection'); // import the connection to the database
 const seedDatabase = require('./seeds/seed'); // import the seed function
 
 sequelize.sync()
