@@ -12,7 +12,7 @@
 <head>
   <meta charset="UTF-8">
   <title>{{pageTitle}}</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/jass.css">
 </head>
 <body>
   {{> header}}
@@ -23,11 +23,11 @@
 
     <h2>Latest Posts</h2>
     <div class="post-list">
-      {{#each posts}}
-        <div class="post">
-          <h3 class="post-title"><a href="/post/{{id}}">{{title}}</a></h3>
-          <p class="post-author">By {{author}} on {{date}}</p>
-          <div class="post-excerpt">{{excerpt}}</div>
+      {{#each blog}}
+        <div class="blog">
+          <h3 class="blog-title"><a href="/blog/{{id}}">{{title}}</a></h3>
+          <p class="blog-author">By {{author}} on {{date}}</p>
+          <div class="blog-excerpt">{{excerpt}}</div>
         </div>
       {{/each}}
     </div>
