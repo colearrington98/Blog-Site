@@ -1,31 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blog</title>
-    <link rel "stylesheet" href "/css/jass.css">
-    <link rel "stylesheet" href "/css/bootstrap.min.css">
-
+  <meta charset="UTF-8">
+  <title>My Blog</title>
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <header class "container">
-        <nav class "navbar navbar-expand-lg navbar-light bg-light">
-            <a class "navbar-brand" href="/">Blog</a>
-            <button class "navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class "navbar-toggler-icon"></span>
-            </button>
-            <div class "collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class "navbar-nav">
-                    <a class "nav-item nav-link active" href="/">Home <span class "sr-only">(current)</span></a>
-                    <a class "nav-item nav-link" href="/about">About</a>
-                    <a class "nav-item nav-link" href="/contact">Contact</a>
-                    <a class "nav-item nav-link" href="/posts">Posts</a>
-                </div>
-            </div>
-        </nav>2
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+        Blog Posts
+      </h1>
+    </header>
+    <main class="container container-fluid mt-5">
+      {{{ body }}}
+    </main>
+  </div>
 </body>
 
+</html>

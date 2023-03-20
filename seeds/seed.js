@@ -1,5 +1,5 @@
-const sequelize = require('../config/connection');
-const { User, Blog, Comment } = require('../models');
+const sequelize = require('../config/connection'); // import the sequelize instance
+const { User, Blog, Comment } = require('../models'); // import the User, Blog, and Comment models
 // Create users
 const users = [
   {

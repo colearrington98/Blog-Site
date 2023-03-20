@@ -1,14 +1,24 @@
-const sequalize = require('./config/connection'); // import the connection to the database
-const seedDatabase = require('./seeds/seed'); // import the seed function
+const sequelize = require('./config/connection');
+const express = require('express');
+const routes = require('./controllers');
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+// Express.js middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Turn on routes
+app.use(routes);
+// app.use(session(sess));
 
 sequelize.sync()
   .then(() => {
-    console.log('All models were synchronized successfully.');
+    app.listen(PORT, () => console.log('Now listening'));
   })
-  .catch((error) => {
-    console.error('Unable to sync the models:', error);
+  .catch(err => {
+    console.log(err);
   });
-
-module.exports = sequelize;
 
 
