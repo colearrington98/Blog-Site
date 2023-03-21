@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  header a {
+    color: white;
+    text-decoration: none;
+    margin: 0 0.5rem;
+  }
+  
+  header a:hover {
+    color: #ddd;
+  }
+  
+  .container {
+    margin: 2rem auto;
+    width: 80%;
+    overflow: auto;
+  }
+  
+  .post {
+    border-bottom: 1px solid #ccc;
+    padding: 1rem 0;
+  }
+  
+  .post:last-child {
+    border-bottom: none;
+  }
+  
+  .post h3 {
+    margin: 0;
+  }
+  
+  .post-date {
+    font-style: italic;
+    color: #777;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+  }
+  
+  input[type='text'],
+  input[type='password'],
+  textarea {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+  }
+  
+  input[type='submit'] {
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    text-align: center;
+  }
+  
+  input[type='submit']:hover {
+    background-color: #555;
+  }
+  
+  .error {
+    color: red;
+    margin: 1rem 0;
+  }
+  
