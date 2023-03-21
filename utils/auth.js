@@ -1,9 +1,9 @@
-const withAuth = (req, res, next) => { // if user is not logged in, redirect to login page
-    if (!req.session.logged_in) { // if user is not logged in
-        res.redirect('/login'); // redirect to login page
-    } else { // if user is logged in
-        next(); // continue to the next middleware
-    } // end if/else
-} // end withAuth\
+function isAuthenticated(req, res, next) {
+  if (req.session && req.session.user) {
+    next();
+    } else {
+        res.redirect('/user/login');
+  }
+}
 
-module.exports = withAuth;
+module.exports = isAuthenticated;

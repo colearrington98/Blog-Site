@@ -1,5 +1,6 @@
 const express = require('express');
 const { Blog } = require('../models');
+const isAuthenticated = require('../utils/auth');
 const router = express.Router();
 
 router.get('/dashboard', async (req, res) => {  // Fetch the user's blog posts and render the dashboard
@@ -30,5 +31,29 @@ router.post('/delete/:id', async (req, res) => {
     await Blog.destroy({where:{id:req.params.id}});
     res.redirect('/blog/dashboard');
 });
+
+router.get('/dashboard', isAuthenticated, async (req, res) => {
+    // ...
+  });
+  
+  router.get('/new', isAuthenticated, (req, res) => {
+    // ...
+  });
+  
+  router.post('/new', isAuthenticated, async (req, res) => {
+    // ...
+  });
+  
+  router.get('/edit/:id', isAuthenticated, async (req, res) => {
+    // ...
+  });
+  
+  router.post('/edit/:id', isAuthenticated, async (req, res) => {
+    // ...
+  });
+  
+  router.post('/delete/:id', isAuthenticated, async (req, res) => {
+    // ...
+  });
 
 module.exports = router;
