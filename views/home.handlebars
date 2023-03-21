@@ -1,0 +1,22 @@
+{{> header}}
+<section>
+    <h1>Recent Blog Posts</h1>
+    <ul>
+        {{#each posts}}
+            <li>
+                <a href="/post/{{id}}">{{title}}</a>
+                <p>Published on {{createdAt}}</p>
+            </li>
+        {{/each}}
+    </ul>
+</section>
+{{> footer}}
+
+  
+
+
+
+ 
+
+
+

@@ -4,6 +4,6 @@ const withAuth = (req, res, next) => { // if user is not logged in, redirect to 
     } else { // if user is logged in
         next(); // continue to the next middleware
     } // end if/else
-} // end withAuth
+} // end withAuth\
 
 module.exports = withAuth;

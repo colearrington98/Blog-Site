@@ -1,0 +1,26 @@
+{{> header}}
+<section>
+    <h1>{{post.title}}</h1>
+    <p>Published on {{post.createdAt}} by {{post.User.username}}</p>
+    <div>{{{post.content}}}</div>
+
+    <h2>Comments</h2>
+    <ul>
+        {{#each post.Comments}}
+            <li>
+                <p>{{content}}</p>
+                <p>By {{User.username}} on {{createdAt}}</p>
+            </li>
+        {{/each}}
+    </ul>
+    {{#if loggedIn}}
+        <h3>Add a comment</h3>
+        <form action="/posts/{{post.id}}/comments" method="POST">
+            <textarea name="content" placeholder="Comment" required></textarea>
+            <button type="submit">Submit Comment</button>
+        </form>
+    {{else}}
+        <p>Please <a href="/login">login</a> to leave a comment.</p>
+    {{/if}}
+</section>
+{{> footer}}
