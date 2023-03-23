@@ -1,7 +1,7 @@
-const express = require('express');
-const { Blog } = require('../models');
-const isAuthenticated = require('../utils/auth');
-const router = express.Router();
+const express = require('express'); // Import the express package
+const { Blog } = require('../models'); // Import the Blog model
+const isAuthenticated = require('../utils/auth'); // Import the custom middleware function
+const router = express.Router(); // Create a router object
 
 router.get('/dashboard', async (req, res) => {  // Fetch the user's blog posts and render the dashboard
     const posts = await Blog.findAll({where:{user_id:req.session.user.id}, include:'User'});
@@ -27,32 +27,32 @@ router.post('/edit/:id', async (req, res) => {  // Process the edit blog post fo
     res.redirect('/blog/dashboard');
 });
 
-router.post('/delete/:id', async (req, res) => {
+router.post('/delete/:id', async (req, res) => { // Delete a blog post
     await Blog.destroy({where:{id:req.params.id}});
     res.redirect('/blog/dashboard');
 });
 
-router.get('/dashboard', isAuthenticated, async (req, res) => {
+router.get('/dashboard', isAuthenticated, async (req, res) => { // Fetch the user's blog posts and render the dashboard
     // ...
   });
   
-  router.get('/new', isAuthenticated, (req, res) => {
+  router.get('/new', isAuthenticated, (req, res) => { // Render the new blog post page
+    // ...
+  });
+   
+  router.post('/new', isAuthenticated, async (req, res) => { // Process the new blog post form and create a new post
     // ...
   });
   
-  router.post('/new', isAuthenticated, async (req, res) => {
+  router.get('/edit/:id', isAuthenticated, async (req, res) => { // Fetch a single blog post and render the edit page
     // ...
   });
   
-  router.get('/edit/:id', isAuthenticated, async (req, res) => {
+  router.post('/edit/:id', isAuthenticated, async (req, res) => { //  Process the edit blog post form and update the post
     // ...
   });
   
-  router.post('/edit/:id', isAuthenticated, async (req, res) => {
-    // ...
-  });
-  
-  router.post('/delete/:id', isAuthenticated, async (req, res) => {
+  router.post('/delete/:id', isAuthenticated, async (req, res) => { // Delete a blog post
     // ...
   });
 

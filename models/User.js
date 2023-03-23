@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require('sequelize'); // import the Model class and DataTypes object from the sequelize package
 const bycrypt = require('bcrypt'); // import bcrypt
 const sequelize = require('../config/connection'); // import our connection to the database
-console.log(sequelize)
 class User extends Model { // create a new class that extends the Model class
  checkPassword(loginPw) { // create a method that will check the password
      return bycrypt.compareSync(loginPw, this.password); // return the result of comparing the login password with the password stored in the database
