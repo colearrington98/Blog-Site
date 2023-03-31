@@ -6,7 +6,6 @@ const exphbs = require('express-handlebars'); // Import the express-handlebars p
 const helpers = require('./utils/helpers'); // Import the helpers folder
 
 
-
 const sequelize = require('./config/connection'); // Import the connection to the database
 const SequelizeStore = require('connect-session-sequelize')(session.Store); // Import the connect-session-sequelize package
 
@@ -49,7 +48,7 @@ app.use(routes);
 
 sequelize.sync() // Sync the models to the database
   .then(() => {
-    app.listen(PORT, () => console.log('Now listening')); // Start the server
+    app.listen(PORT, () => console.log(`Now listening on port ${PORT}`)); // Start the server
   })
   .catch(err => {
     console.log(err);

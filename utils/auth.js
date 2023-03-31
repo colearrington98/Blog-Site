@@ -1,9 +1,9 @@
-function isAuthenticated(req, res, next) {
-  if (req.session && req.session.user) {
-    next();
+const withAuth = (req, res, next) => {
+    if (!req.session.user_id) {
+        res.redirect('/login');
     } else {
-        res.redirect('/user/login');
-  }
-}
+        next();
+    }
+};
 
-module.exports = isAuthenticated; // Export the isAuthenticated function
+module.exports = withAuth;

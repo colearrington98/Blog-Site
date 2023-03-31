@@ -15,7 +15,6 @@ Blog.init( // initialize the Blog model
             type: DataTypes.STRING,
             allowNull: false,
         },
-
         content: {
             type: DataTypes.TEXT,
             allowNull: false,

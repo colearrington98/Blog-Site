@@ -1,6 +1,6 @@
 const express = require('express'); // Import the express package
-const { Blog } = require('../models'); // Import the Blog model
-const isAuthenticated = require('../utils/auth'); // Import the custom middleware function
+const { Blog } = require('../../models'); // Import the Blog model
+const isAuthenticated = require('../../utils/auth'); // Import the custom middleware function
 const router = express.Router(); // Create a router object
 
 router.get('/dashboard', async (req, res) => {  // Fetch the user's blog posts and render the dashboard
