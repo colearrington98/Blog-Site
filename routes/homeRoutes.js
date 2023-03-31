@@ -1,5 +1,5 @@
 const express = require('express');
-const { Blog } = require('../models');
+const { Blog } = require('../models'); // Import the Blog model
 const router = express.Router();
 
 router.get('/', async (req, res) => {   // Fetch blog posts and render the homepage

@@ -15,7 +15,14 @@ const exphbs = require('express-handlebars'); // Import the express-handlebars p
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({}); // Create a new instance of exphbs
+// const hbs = exphbs.create({}); // Create a new instance of exphbs
+
+// Set Handlebars.js as the default template engine
+app.engine('handlebars', exphbs({ defaultLayout: 'main' })); 
+app.set('view engine', 'handlebars'); // 
+
+
+app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from the public folder
 
 
 // Express.js session middleware
@@ -30,10 +37,6 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Set Handlebars.js as the default template engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' })); 
-app.set('view engine', 'handlebars'); // 
-app.use(express.static(path.join(__dirname, 'public')));// Serve static files from the public folder
 
 // Turn on routes
 app.use(routes);
